@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chen Xu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <span class="nav-name">Chen Xu</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#competitions">Awards</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.pdf" download class="nav-resume">Resume ↓</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Chen Xu</h1>
+        <p class="hero-tagline">I build things that <em>see</em>, think, and ship.</p>
+        <p class="hero-sub">
+          CS @ New York University &middot; Computer Vision &middot; Machine Learning &middot; iOS
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="resume.pdf" download class="btn-ghost">Download Resume ↓</a>
+        </div>
+        <a href="mailto:chenxu1098@gmail.com" class="hero-email" id="heroEmail" aria-label="Email Chen Xu"></a>
+      </div>
+      <div class="hero-photo reveal delay-1">
+        <img src="head.jpg" alt="Chen Xu" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title reveal">About</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a Computer Science student at <strong>New York University</strong> (Class of 2030),
+            drawn to problems at the intersection of computer vision, machine learning, and real-world impact.
+          </p>
+          <p>
+            I've trained models that detect coal rock with 97% accuracy, built iOS apps protecting
+            civil rights, won a <strong>$20,000 hackathon</strong>, and built a personal AI assistant
+            modeled after Iron Man's J.A.R.V.I.S. I speak English and Mandarin natively.
+          </p>
+        </div>
+        <div class="skills-block reveal delay-1">
+          <p class="skills-label">Technologies</p>
+          <div class="skills-grid">
+            <span>Python</span><span>C++</span><span>Swift</span><span>OpenCV</span>
+            <span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span>
+            <span>AWS</span><span>TensorFlow</span><span>iOS</span><span>Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIONS -->
+  <section id="competitions">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Awards &amp; Competitions</h2>
+      <div class="comp-grid">
+        <div class="comp-item reveal">
+          <span class="comp-medal gold">Gold</span>
+          <div>
+            <p class="comp-name">ICPC Regional Contest
+              <a href="https://youtu.be/y05GVbBbQ3w" target="_blank" rel="noreferrer" class="comp-vlog">▶ Vlog</a>
+            </p>
+            <p class="comp-detail">International Collegiate Programming Contest &middot; 2025</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
+          <span class="comp-medal silver">Silver</span>
+          <div>
+            <p class="comp-name">ICPC Asia East Continent Final</p>
+            <p class="comp-detail">International Collegiate Programming Contest &middot; 2024</p>
+          </div>
+        </div>
+        <div class="comp-item reveal">
+          <span class="comp-medal hack">$20K</span>
+          <div>
+            <p class="comp-name">Hackathon Shipyard 2026 Winner</p>
+            <p class="comp-detail">BookaCook &middot; $20,000 Prize</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
+          <span class="comp-medal cf">IM</span>
+          <div>
+            <p class="comp-name">Codeforces International Master</p>
+            <p class="comp-detail">Competitive Programming</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-2">
+          <span class="comp-medal plat">Plat</span>
+          <div>
+            <p class="comp-name">USACO Platinum Division</p>
+            <p class="comp-detail">USA Computing Olympiad &middot; 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jun – Sep 2025</span>
+            <span class="timeline-company">Golden Stone Technology</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Computer Vision Engineer</h3>
+            <p>Developed a coal rock detection and separation algorithm using self-trained ML models and OpenCV. Achieved <strong>97% overall accuracy</strong> in production industrial environments.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <span class="timeline-date">May – Jun 2025</span>
+            <span class="timeline-company">Golden Stone Technology</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Computer Vision Engineer</h3>
+            <p>Built a facial recognition and liveness detection system that identifies phone screen reflections, distinguishing live persons from photo/video spoofing attempts in industrial safety applications.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jul 2025</span>
+            <span class="timeline-company">Sohu</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Software Engineering Intern</h3>
+            <p>Designed an algorithm to auto-categorize a legacy library of 5,000+ videos, improving retrieval efficiency by <strong>7%</strong>.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="projects-list">
+
+        <!-- BOOKACOCK -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2026</span>
+              <h3>BookaCook</h3>
+              <p class="project-subtitle">iOS Recipe Platform &middot; 100+ Downloads &middot; $20,000 Hackathon Winner</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://youtu.be/Rv-Wauw9iv4" target="_blank" rel="noreferrer" class="link-pill link-pill-yt">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                Demo
+              </a>
+              <a href="https://github.com/Chen1098/bookacook" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+              <a href="https://apps.apple.com/us/app/book-a-cook/id6758606224" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                App Store
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">Full-stack iOS recipe platform backed by SQLite, with Python web crawlers indexing 1,200+ cookbooks and 1M+ recipes, and ISBN barcode scanning to catalog physical cookbooks. Multi-model AI pipeline: TikTok API ingestion &rarr; Groq Whisper speech-to-text &rarr; GPT-4o vision for ingredient recognition &rarr; Llama 3 for structured recipe generation, combined with hybrid collaborative-filtering recommendations.</p>
+          <div class="project-tags">
+            <span>Swift</span><span>Python</span><span>SQLite</span><span>GPT-4o</span><span>Groq Llama 3</span><span>TikTok API</span>
+          </div>
+        </div>
+
+        <!-- FACIAL RECOGNITION -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2025</span>
+              <h3>Facial Recognition &amp; Liveness Detection</h3>
+              <p class="project-subtitle">70+ GitHub Stars &middot; Industrial Security</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://youtu.be/XRg5f1uYh4E" target="_blank" rel="noreferrer" class="link-pill link-pill-yt">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                Demo
+              </a>
+              <a href="https://github.com/Chen1098/Face-Recognition-With-Liveness-Detection-for-Linux-Weston" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">Anti-spoofing system trained to detect phone screen reflections on faces — the subtle glare patterns that appear when someone holds a photo or video. Enables real-time distinction between live persons and spoofing attempts using custom CNN models. Open-sourced with full documentation.</p>
+          <div class="project-demo-img phone-img reveal">
+            <img src="img/demo_2.jpeg" alt="Facial recognition liveness detection demo" loading="lazy" />
+          </div>
+          <div class="project-tags">
+            <span>Python</span><span>OpenCV</span><span>TensorFlow</span><span>CNN</span>
+          </div>
+        </div>
+
+        <!-- JARVIS -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2025</span>
+              <h3>Jarvis AI Assistant</h3>
+              <p class="project-subtitle">Voice-Controlled Personal AI Modeled After Iron Man's J.A.R.V.I.S.</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://github.com/Chen1098/The-Real-Jarvis-From-the-Movies" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+              <a href="https://youtu.be/HHynzl-zhb4" target="_blank" rel="noreferrer" class="link-pill link-pill-yt">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                Demo
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">Built a comprehensive personal AI assistant with WhatsApp integration that analyzes message history and auto-replies based on your communication style. Features always-on voice wake word detection (Porcupine), calendar conflict management, and full system control — not just command execution, but <em>judgment</em>.</p>
+          <div class="openclaw-note reveal">
+            <span class="openclaw-badge">Independent Invention</span>
+            Jarvis shares the same core concept as <strong>OpenClaw</strong>, an open-source AI agent framework that went viral roughly two months after Jarvis was built — demonstrating that the idea was ahead of its time. Both systems use persistent context and learned behavior to act autonomously on a user's behalf, rather than just respond to commands.
+          </div>
+          <div class="project-demo-img wide-img reveal">
+            <img src="img/demo_0.jpeg" alt="Jarvis AI Assistant demo — WhatsApp auto-replies" loading="lazy" />
+            <p class="img-caption">Jarvis auto-replying to WhatsApp messages based on learned communication patterns</p>
+          </div>
+          <div class="project-tags">
+            <span>Python</span><span>GPT-4o</span><span>Porcupine</span><span>Node.js</span><span>WhatsApp API</span><span>TTS</span>
+          </div>
+        </div>
+
+        <!-- RIGHT TO RECORD -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2025</span>
+              <h3>RightToRecord</h3>
+              <p class="project-subtitle">iOS &middot; 80+ GitHub Stars &middot; 80+ Active Users</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://github.com/Chen1098/RightToRecord-App" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">Civic tech iOS app that uploads video to secure cloud storage <em>while recording</em> — not after. Even if the phone is confiscated mid-recording, everything is already preserved. Password-protected vault with end-to-end encryption. Reached 80+ active users with confirmed evidence preservation in high-stakes situations.</p>
+          <div class="project-demo-img phone-img reveal">
+            <img src="img/demo_1.jpeg" alt="RightToRecord app screenshot" loading="lazy" />
+          </div>
+          <div class="project-tags">
+            <span>Swift</span><span>SwiftUI</span><span>AVFoundation</span><span>Node.js</span><span>AWS</span>
+          </div>
+        </div>
+
+        <!-- LLM -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2024</span>
+              <h3>LLM from Scratch</h3>
+              <p class="project-subtitle">Transformer Architecture &middot; Deep Learning</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://github.com/Chen1098/LLMs" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">Built a custom large language model architecture from the ground up to understand transformer mechanics and computational constraints. Explored hardware-software optimization challenges in deep learning and investigated resource-efficient training methods.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Transformers</span><span>Deep Learning</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner contact-inner reveal">
+      <h2 class="contact-title">Let's work together</h2>
+      <p class="contact-sub">I'm always open to new opportunities, collaborations, or just a good conversation about tech.</p>
+      <div class="contact-actions">
+        <a href="mailto:chenxu1098@gmail.com" class="btn-primary">Say Hello</a>
+        <a href="resume.pdf" download class="btn-ghost">Download Resume ↓</a>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/Chen1098" target="_blank" rel="noreferrer">GitHub</a>
+        <span>&middot;</span>
+        <a href="mailto:chenxu1098@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed &amp; Built by Chen Xu &middot; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
