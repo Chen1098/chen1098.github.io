@@ -16,6 +16,30 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
+// Resume download dropdowns (English / Chinese)
+const resumeDds = document.querySelectorAll('.resume-dd');
+resumeDds.forEach(dd => {
+  const toggle = dd.querySelector('.resume-dd-toggle');
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dd.classList.contains('open');
+    resumeDds.forEach(d => {
+      d.classList.remove('open');
+      d.querySelector('.resume-dd-toggle').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      dd.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+document.addEventListener('click', () => {
+  resumeDds.forEach(d => {
+    d.classList.remove('open');
+    d.querySelector('.resume-dd-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+
 // Animated email on hero — letters pop in one by one after a short delay
 const email = 'chenxu1098@gmail.com';
 const emailEl = document.getElementById('heroEmail');

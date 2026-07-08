@@ -99,6 +99,64 @@ strong { font-weight: 600; }
 }
 .nav-resume:hover { background: var(--accent); color: var(--bg) !important; border-color: var(--accent); }
 
+/* ─── RESUME DROPDOWN ──────────────────────────────────────────── */
+.resume-dd {
+  position: relative;
+  display: inline-block;
+}
+.resume-dd-toggle {
+  font-family: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+button.btn-ghost { background: transparent; }
+.resume-menu {
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 185px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0,0,0,.1);
+  padding: .4rem;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -6px;
+  transition: opacity .2s ease, translate .2s ease, visibility .2s;
+}
+.resume-dd.open .resume-menu {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+.resume-dd-right .resume-menu {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+.resume-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: .55rem .85rem;
+  border-radius: 8px;
+  font-size: .86rem;
+  color: var(--text);
+  white-space: nowrap;
+  transition: background var(--transition);
+}
+.resume-menu a:hover { background: var(--bg); }
+.resume-menu a span {
+  font-size: .7rem;
+  color: var(--muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
 /* ─── SECTIONS ─────────────────────────────────────────────────── */
 section { padding: 100px 5vw; }
 .section-inner {
@@ -347,6 +405,21 @@ section { padding: 100px 5vw; }
   font-weight: 300;
   line-height: 1.65;
 }
+
+.timeline-bullets {
+  margin-top: .6rem;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.timeline-bullets li {
+  font-size: .88rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.timeline-bullets li::marker { color: var(--accent); }
 
 /* ─── PROJECTS ─────────────────────────────────────────────────── */
 #projects { background: var(--bg-card); }

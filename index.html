@@ -21,7 +21,13 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="resume.pdf" download class="nav-resume">Resume ↓</a></li>
+        <li class="resume-dd resume-dd-right">
+          <button type="button" class="nav-resume resume-dd-toggle" aria-haspopup="true" aria-expanded="false">Resume ↓</button>
+          <div class="resume-menu">
+            <a href="resume-en.pdf" download="Chen-Xu-Resume.pdf">English <span>PDF</span></a>
+            <a href="resume-cn.pdf" download="许琛简历.pdf">中文 · Chinese <span>PDF</span></a>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
@@ -34,11 +40,17 @@
         <h1 class="hero-name">Chen Xu</h1>
         <p class="hero-tagline">I build things that <em>see</em>, think, and ship.</p>
         <p class="hero-sub">
-          CS @ New York University &middot; Computer Vision &middot; Machine Learning &middot; iOS
+          CS @ NYU Tandon &middot; Computer Vision &middot; GPU Infrastructure &middot; LLM Agents
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="resume.pdf" download class="btn-ghost">Download Resume ↓</a>
+          <div class="resume-dd">
+            <button type="button" class="btn-ghost resume-dd-toggle" aria-haspopup="true" aria-expanded="false">Download Resume ↓</button>
+            <div class="resume-menu">
+              <a href="resume-en.pdf" download="Chen-Xu-Resume.pdf">English <span>PDF</span></a>
+              <a href="resume-cn.pdf" download="许琛简历.pdf">中文 · Chinese <span>PDF</span></a>
+            </div>
+          </div>
         </div>
         <a href="mailto:chenxu1098@gmail.com" class="hero-email" id="heroEmail" aria-label="Email Chen Xu"></a>
       </div>
@@ -55,21 +67,25 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <p>
-            I'm a Computer Science student at <strong>New York University</strong> (Class of 2030),
-            drawn to problems at the intersection of computer vision, machine learning, and real-world impact.
+            I'm a Computer Science student at <strong>NYU Tandon School of Engineering</strong> (Class of 2030),
+            working across computer vision, GPU infrastructure, and LLM agent tooling — with a foundation
+            in competitive programming: data structures, dynamic programming, tree &amp; graph algorithms,
+            probability, and combinatorics in C++.
           </p>
           <p>
-            I've trained models that detect coal rock with 97% accuracy, built iOS apps protecting
-            civil rights, won a <strong>$20,000 hackathon</strong>, and built a personal AI assistant
-            modeled after Iron Man's J.A.R.V.I.S. I speak English and Mandarin natively.
+            I've shipped a battery-electrode vision measurement system now running on <strong>30+ production
+            machines across 5 manufacturers</strong>, built usage-based GPU memory oversubscription for
+            <strong>HAMi</strong> (open-source Kubernetes GPU virtualization), and compete as a
+            <strong>Codeforces International Master</strong> — top 0.5% worldwide. I speak English and
+            Mandarin natively.
           </p>
         </div>
         <div class="skills-block reveal delay-1">
           <p class="skills-label">Technologies</p>
           <div class="skills-grid">
-            <span>Python</span><span>C++</span><span>Swift</span><span>OpenCV</span>
-            <span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span>
-            <span>AWS</span><span>TensorFlow</span><span>iOS</span><span>Git</span>
+            <span>C++</span><span>Python</span><span>Go</span><span>Swift</span><span>SQL</span>
+            <span>PyTorch</span><span>OpenCV</span><span>Kubernetes</span><span>GPU Virtualization</span>
+            <span>CUDA</span><span>MCP</span><span>Linux</span><span>Git</span>
           </div>
         </div>
       </div>
@@ -84,17 +100,45 @@
         <div class="comp-item reveal">
           <span class="comp-medal gold">Gold</span>
           <div>
-            <p class="comp-name">ICPC Regional Contest
+            <p class="comp-name">CCPC &amp; ICPC Shandong Regional</p>
+            <p class="comp-detail">Collegiate Programming Contest &middot; 2026</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
+          <span class="comp-medal gold">Gold</span>
+          <div>
+            <p class="comp-name">ICPC Xi'an Regional
               <a href="https://youtu.be/y05GVbBbQ3w" target="_blank" rel="noreferrer" class="comp-vlog">▶ Vlog</a>
             </p>
             <p class="comp-detail">International Collegiate Programming Contest &middot; 2025</p>
           </div>
         </div>
-        <div class="comp-item reveal delay-1">
+        <div class="comp-item reveal">
           <span class="comp-medal silver">Silver</span>
           <div>
             <p class="comp-name">ICPC Asia East Continent Final</p>
             <p class="comp-detail">International Collegiate Programming Contest &middot; 2024</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
+          <span class="comp-medal silver">Silver</span>
+          <div>
+            <p class="comp-name">ICPC Asia Regional, Chongqing</p>
+            <p class="comp-detail">International Collegiate Programming Contest &middot; 2025</p>
+          </div>
+        </div>
+        <div class="comp-item reveal">
+          <span class="comp-medal cf">IM</span>
+          <div>
+            <p class="comp-name">Codeforces International Master</p>
+            <p class="comp-detail">Top 0.5% Worldwide &middot; Competitive Programming</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
+          <span class="comp-medal plat">Plat</span>
+          <div>
+            <p class="comp-name">USACO Platinum Division</p>
+            <p class="comp-detail">USA Computing Olympiad</p>
           </div>
         </div>
         <div class="comp-item reveal">
@@ -102,20 +146,6 @@
           <div>
             <p class="comp-name">Hackathon Shipyard 2026 Winner</p>
             <p class="comp-detail">BookaCook &middot; $20,000 Prize</p>
-          </div>
-        </div>
-        <div class="comp-item reveal delay-1">
-          <span class="comp-medal cf">IM</span>
-          <div>
-            <p class="comp-name">Codeforces International Master</p>
-            <p class="comp-detail">Competitive Programming</p>
-          </div>
-        </div>
-        <div class="comp-item reveal delay-2">
-          <span class="comp-medal plat">Plat</span>
-          <div>
-            <p class="comp-name">USACO Platinum Division</p>
-            <p class="comp-detail">USA Computing Olympiad &middot; 2025</p>
           </div>
         </div>
       </div>
@@ -127,6 +157,22 @@
     <div class="section-inner">
       <h2 class="section-title reveal">Experience</h2>
       <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <span class="timeline-date">Feb – Apr 2026</span>
+            <span class="timeline-company">Golden Stone Technology</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Computer Vision Engineer</h3>
+            <p>Independently developed a CCD vision measurement system for battery electrode sheets — measuring segment widths and judging pass/fail in real time — now in production on <strong>30+ machines across 5 battery manufacturers</strong>, iterated through 50+ releases driven by real production-line feedback.</p>
+            <ul class="timeline-bullets">
+              <li>Owned the entire product: checkerboard camera calibration, measurement &amp; qualification logic, real-time TCP communication with line-control systems, a PySide6 GUI, and a JSON CLI for host-machine integration.</li>
+              <li>Built the edge-detection pipeline from scratch: banded |Sobel-x| gradients, non-maximum-suppression peak extraction, and per-peak RANSAC line fitting (parameterized as x&nbsp;=&nbsp;m·y&nbsp;+&nbsp;b for stability on near-vertical edges), with brightness-step and angle filters rejecting false edges from foil wrinkles and scratches.</li>
+              <li>Designed a binary search over three coupled criteria — peak threshold, RANSAC confidence, angle tolerance — finding the minimal relaxation that recovers the expected edge count with the fewest false edges; <strong>R² &gt; 0.995</strong> against ground-truth calibration.</li>
+            </ul>
+          </div>
+        </div>
 
         <div class="timeline-item reveal">
           <div class="timeline-meta">
@@ -170,6 +216,61 @@
     <div class="section-inner">
       <h2 class="section-title reveal">Projects</h2>
       <div class="projects-list">
+
+        <!-- CCD ELECTRODE MEASUREMENT -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2026</span>
+              <h3>Battery Electrode CCD Vision Measurement</h3>
+              <p class="project-subtitle">In Production on 30+ Machines Across 5 Battery Manufacturers</p>
+            </div>
+          </div>
+          <p class="project-desc">Industrial vision system that measures the width of every coated segment on battery electrode sheets and judges pass/fail in real time on the production line. Independently built and owned end-to-end: checkerboard camera calibration, a subpixel edge-detection pipeline (banded |Sobel-x| gradients, non-maximum suppression, per-peak RANSAC line fitting), real-time TCP communication with line-control systems, a PySide6 operator GUI, and a JSON CLI for host-machine integration. <strong>R&sup2; &gt; 0.995</strong> against ground truth, iterated through 50+ releases driven by real production-line feedback.</p>
+          <div class="project-demo-img reveal">
+            <img src="img/demo_ccd.jpeg" alt="CCD electrode measurement system — upper and lower camera views with live width and angle readouts" loading="lazy" />
+            <p class="img-caption">Live measurement view — upper &amp; lower cameras reading coated-segment widths and edge angles on an electrode sheet</p>
+          </div>
+          <div class="project-tags">
+            <span>Python</span><span>OpenCV</span><span>PySide6</span><span>RANSAC</span><span>TCP</span>
+          </div>
+        </div>
+
+        <!-- HAMI GPU MEMORY OVERSUBSCRIPTION -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2026</span>
+              <h3>Usage-Based GPU Memory Oversubscription — HAMi</h3>
+              <p class="project-subtitle">Open-Source Kubernetes GPU Virtualization</p>
+            </div>
+            <div class="project-full-links">
+              <a href="https://github.com/Project-HAMi/HAMi" target="_blank" rel="noreferrer" class="link-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">GPU compute oversubscription time-shares gracefully, but memory is exclusive — exceed the physical limit and CUDA hard-crashes with OOM. HAMi's memory oversubscription was driven by <em>requested</em> memory rather than each container's real usage, so co-locating memory-hungry jobs could crash the node. Wired the real-usage signal back into the Go scheduler so admission enforces <strong>real usage + request &le; physical capacity</strong>, safely reclaiming idle memory — gated behind an environment flag with automatic fallback when the signal is unavailable. Validated with trace-driven simulation and real V100 cluster runs: zero crashes with utilization up from <strong>55% to 78% (1.4&times;)</strong> against a best-tuned baseline, and <strong>2&times; (28% &rarr; 56%)</strong> with double the admitted pods against the fixed-oversubscription production default.</p>
+          <div class="project-tags">
+            <span>Go</span><span>Kubernetes</span><span>CUDA</span><span>GPU Scheduling</span><span>V100</span>
+          </div>
+        </div>
+
+        <!-- AGENT TOOLCHAIN -->
+        <div class="project-full reveal">
+          <div class="project-full-header">
+            <div class="project-full-title">
+              <span class="project-year">2026</span>
+              <h3>Agent Toolchain &amp; LLM Infrastructure</h3>
+              <p class="project-subtitle">MCP Servers &middot; Agent Scaffolding &middot; Computer-Use Agents</p>
+            </div>
+          </div>
+          <p class="project-desc">Built agent tooling on the Model Context Protocol: custom MCP servers exposing tools to LLM agents, driving multi-step coding workflows through agent scaffolding (Claude Code) with tool-use loops and subagent orchestration. Hands-on across the LLM serving and agent stack — API integration, KV-cache mechanics, prompt &amp; context engineering, and computer-use agents (UI-TARS Desktop).</p>
+          <div class="project-tags">
+            <span>MCP</span><span>Claude Code</span><span>Python</span><span>KV-Cache</span><span>UI-TARS</span>
+          </div>
+        </div>
 
         <!-- BOOKACOCK -->
         <div class="project-full reveal">
@@ -317,7 +418,13 @@
       <p class="contact-sub">I'm always open to new opportunities, collaborations, or just a good conversation about tech.</p>
       <div class="contact-actions">
         <a href="mailto:chenxu1098@gmail.com" class="btn-primary">Say Hello</a>
-        <a href="resume.pdf" download class="btn-ghost">Download Resume ↓</a>
+        <div class="resume-dd">
+          <button type="button" class="btn-ghost resume-dd-toggle" aria-haspopup="true" aria-expanded="false">Download Resume ↓</button>
+          <div class="resume-menu">
+            <a href="resume-en.pdf" download="Chen-Xu-Resume.pdf">English <span>PDF</span></a>
+            <a href="resume-cn.pdf" download="许琛简历.pdf">中文 · Chinese <span>PDF</span></a>
+          </div>
+        </div>
       </div>
       <div class="social-links">
         <a href="https://github.com/Chen1098" target="_blank" rel="noreferrer">GitHub</a>
