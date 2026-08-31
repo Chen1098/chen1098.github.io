@@ -12,6 +12,7 @@
   --silver:    #888;
   --cf:        #7b5ea7;
   --plat:      #4a90a4;
+  --champ:     #b0403a;
   --radius:    12px;
   --shadow:    0 2px 16px rgba(0,0,0,.06);
   --transition: .35s cubic-bezier(.4,0,.2,1);
@@ -641,6 +642,7 @@ section { padding: 100px 5vw; }
 .comp-medal.cf     { background: #f0eaf8; color: var(--cf); border: 1.5px solid #c4aee0; }
 .comp-medal.plat   { background: #e8f4f7; color: var(--plat); border: 1.5px solid #9ecfdb; }
 .comp-medal.hack   { background: #f0fdf4; color: #16a34a; border: 1.5px solid #86efac; font-size: .62rem; }
+.comp-medal.champ  { background: #fdecea; color: var(--champ); border: 1.5px solid #f0a9a0; }
 
 .comp-name {
   font-size: .95rem;
@@ -648,7 +650,8 @@ section { padding: 100px 5vw; }
   margin-bottom: .2rem;
   display: flex;
   align-items: center;
-  gap: .6rem;
+  flex-wrap: wrap;
+  gap: .5rem;
 }
 .comp-vlog {
   font-size: .72rem;
@@ -661,6 +664,17 @@ section { padding: 100px 5vw; }
   white-space: nowrap;
 }
 .comp-vlog:hover { background: #fff5f5; }
+.comp-board {
+  font-size: .72rem;
+  color: var(--muted);
+  font-weight: 500;
+  padding: .15rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.comp-board:hover { background: var(--bg); color: var(--text); }
 .comp-detail {
   font-size: .8rem;
   color: var(--muted);
