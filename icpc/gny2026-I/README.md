@@ -7,7 +7,11 @@ These are **unofficial** tests. Expected answers come from a reference solution 
 stress-tested against an independent O(n³) brute force on 6000 random small cases; every
 small test below is also checked by the brute force.
 
-## Run
+## Online judge
+
+<https://chen1098.github.io/icpc/gny2026-I/> — submit C++ or Python in the browser; it compiles and judges locally (AC / WA / TLE / RE / CE).
+
+## Run locally
 
 ```bash
 ./run.sh my_solution.cpp

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POP Quiz Judge</title>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a64; --line: #e2e0d8;
+  --accent: #2f5bd3; --ac: #1f8a4c; --wa: #c2372b; --tle: #b7791f; --re: #8e44ad; --ce: #555;
+  --code-bg: #fbfbf8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161614; --panel: #1f1f1c; --ink: #ecebe6; --muted: #9a998f; --line: #34332e;
+    --accent: #7b9cff; --ac: #4cc27f; --wa: #ff6b5e; --tle: #e3a945; --re: #c38be0; --ce: #aaa;
+    --code-bg: #191917;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+header { padding: 18px 20px 6px; max-width: 1280px; margin: 0 auto; }
+header h1 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+header p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+header a { color: var(--accent); }
+main { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px;
+  padding: 12px 20px 40px; max-width: 1280px; margin: 0 auto; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; min-width: 0; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+select, input[type=number], button {
+  font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 7px; padding: 6px 10px; }
+input[type=number] { width: 70px; }
+button { cursor: pointer; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+button:disabled { opacity: .5; cursor: default; }
+label { color: var(--muted); font-size: 14px; }
+textarea { width: 100%; font: 13.5px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--ink); background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
+  padding: 10px; resize: vertical; tab-size: 4; }
+#code { height: 480px; }
+#custom-in { height: 110px; }
+pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 12.5px/1.45 ui-monospace, Menlo, Consolas, monospace;
+  background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; max-height: 260px; overflow: auto; }
+#status { color: var(--muted); font-size: 14px; min-height: 21px; }
+#verdict { font-size: 26px; font-weight: 700; margin: 2px 0 8px; min-height: 34px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.v { font-weight: 700; }
+.AC { color: var(--ac); } .WA { color: var(--wa); } .TLE { color: var(--tle); }
+.RE, .OLE { color: var(--re); } .CE { color: var(--ce); } .pending { color: var(--muted); font-weight: 400; }
+.desc { color: var(--muted); }
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+.section-title { font-size: 14px; color: var(--muted); margin: 14px 0 6px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>GNY 2026 · Problem I · POP Quiz</h1>
+  <p><a href="https://east.na.icpc.global/scoreboard/2026/eastdiv/problems/I.pdf" target="_blank" rel="noopener">题面 PDF</a>
+    · 24 组自造数据 · 评测在浏览器本地运行（C++ 用 WebAssembly 版 clang，Python 用 Pyodide）</p>
+</header>
+<main>
+  <section class="panel">
+    <div class="bar">
+      <select id="lang">
+        <option value="cpp">C++20 (clang -O2)</option>
+        <option value="py">Python 3 (Pyodide)</option>
+      </select>
+      <label>Time limit <input id="tl" type="number" min="0.5" step="0.5" value="3"> s</label>
+      <span style="flex:1"></span>
+      <button id="run-custom">运行自定义输入</button>
+      <button id="submit" class="primary">提交</button>
+    </div>
+    <textarea id="code" spellcheck="false" autocomplete="off"></textarea>
+    <div class="section-title">自定义输入</div>
+    <textarea id="custom-in" spellcheck="false">5
+5 3 5
+7 1 10
+6 4 9
+4 8 2
+1 22 3</textarea>
+    <div id="custom-out-wrap" class="hidden">
+      <div class="section-title" id="custom-out-title">输出</div>
+      <pre id="custom-out"></pre>
+    </div>
+    <details>
+      <summary>说明</summary>
+      <p style="font-size:14px;color:var(--muted)">
+        C++ 编译参数：<code>-O2 -std=c++20 -fno-exceptions</code>，栈 64MB，<code>&lt;bits/stdc++.h&gt;</code> 可用。
+        第一次用 C++ 要下载约 100MB 的编译器，之后浏览器会缓存；每次编译约 5–10 秒。
+        WebAssembly 里 <code>cin</code> 比 <code>scanf</code> 慢很多（大数据约 0.9s 对 0.06s）。
+        不支持 <code>try/throw</code>；数组越界不一定报 RE。
+        Python 运行在 Pyodide 里，大约比本地 CPython 慢 1.4 倍。代码会自动保存在本浏览器里。
+      </p>
+    </details>
+  </section>
+  <section class="panel">
+    <div id="verdict"></div>
+    <div id="status"></div>
+    <div id="ce-wrap" class="hidden"><div class="section-title">编译信息</div><pre id="ce-log"></pre></div>
+    <table>
+      <thead><tr><th>#</th><th>结果</th><th class="num">时间</th><th>测试点</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div id="detail-wrap" class="hidden"><div class="section-title" id="detail-title"></div><pre id="detail"></pre></div>
+  </section>
+</main>
+<script>
+const TESTS = [
+  [5, 'sample 1'], [2, 'sample 2'], [1, 'single point, x = y = z'], [1, 'single point, not all equal'],
+  [3, 'exactly opposite directions, different lengths'], [2, 'almost opposite (cross = −1)'],
+  [3, 'almost opposite + point filling the gap'], [3, 'almost opposite + point on the wrong side'],
+  [3, 'yes only via a triangle'], [3, 'opposite pair inside a triple'], [3, 'directions span < half-turn'],
+  [5, 'all points in one direction'], [100000, 'max n, all in one direction'],
+  [100000, 'max n, one line, both directions'], [100000, 'max n, uniform random'],
+  [100000, 'max n, open half-plane'], [100000, 'half-plane + one boundary ray'],
+  [100000, '#17 + hidden point on other boundary ray'], [100000, 'half-plane hugging both boundaries'],
+  [100000, '#19 + one exactly opposite point'], [100000, '#19 + one exact boundary ray'],
+  [100000, '#19 + both exact boundary rays'], [100000, 'open quadrant + one x = y = z point'],
+  [100000, 'max n, open quadrant'],
+];
+const TEMPLATES = {
+  cpp: `#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        int x, y, z;
+        scanf("%d %d %d", &x, &y, &z);
+    }
+    puts("no");
+}
+`,
+  py: `import sys
+
+def main():
+    data = sys.stdin.buffer.read().split()
+    n = int(data[0])
+    print("no")
+
+main()
+`,
+};
+const $ = id => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+
+// ---------- workers ----------
+let compiler = null;       // persistent C++ compiler worker
+let runner = null, runnerLang = null, runnerWasm = null;
+let lastWasm = null, lastSrc = null;
+
+function spawn() { return new Worker('worker.js', { type: 'module' }); }
+let nextId = 1;
+function call(w, msg) {
+  const id = nextId++;
+  return new Promise((resolve) => {
+    const onMsg = ({ data }) => {
+      if (data.type === 'progress') { setStatus(data.text); return; }
+      if (data.id !== id) return;
+      w.removeEventListener('message', onMsg);
+      resolve(data);
+    };
+    w.addEventListener('message', onMsg);
+    w.postMessage({ ...msg, id });
+  });
+}
+function killRunner() { if (runner) runner.terminate(); runner = null; runnerLang = null; runnerWasm = null; }
+
+async function getRunner(lang) {
+  if (runner && runnerLang === lang && (lang === 'py' || runnerWasm === lastWasm)) return runner;
+  killRunner();
+  runner = spawn(); runnerLang = lang;
+  const r = lang === 'py' ? await call(runner, { type: 'preload-py' })
+                          : await call(runner, { type: 'load-wasm', wasm: lastWasm });
+  if (r.type === 'error') throw new Error(r.text);
+  runnerWasm = lastWasm;
+  return runner;
+}
+
+async function compileIfNeeded(src) {
+  if (src === lastSrc && lastWasm) return { ok: true, cached: true };
+  if (!compiler) compiler = spawn();
+  setStatus('编译中…');
+  const r = await call(compiler, { type: 'compile', src });
+  if (r.type === 'error') return { ok: false, log: r.text };
+  if (r.ok) { lastWasm = r.wasm; lastSrc = src; }
+  return r;
+}
+
+async function runOnce(lang, src, input) {
+  const tl = Math.max(0.1, parseFloat($('tl').value) || 3) * 1000;
+  const w = await getRunner(lang);
+  const msg = lang === 'py' ? { type: 'run-py', src, input } : { type: 'run-cpp', input };
+  let timer;
+  const killed = new Promise(res => { timer = setTimeout(() => res({ type: 'result', status: 'TLE', ms: null }), tl + 1500); });
+  const r = await Promise.race([call(w, msg), killed]);
+  clearTimeout(timer);
+  if (r.status === 'TLE' && r.ms === null) killRunner();
+  if (r.type === 'error') return { status: 'RE', ms: 0, stdout: '', stderr: r.text };
+  if (r.status === 'OK' && r.ms > tl) r.status = 'TLE';
+  return r;
+}
+
+// ---------- data ----------
+const cache = {};
+async function getText(name) {
+  if (!(name in cache)) {
+    const res = await fetch('data/' + name);
+    if (!res.ok) throw new Error('fetch ' + name + ' failed: ' + res.status);
+    cache[name] = new Uint8Array(await res.arrayBuffer());
+  }
+  return cache[name];
+}
+const tokens = s => s.split(/\s+/).filter(Boolean);
+const sameOutput = (a, b) => { const x = tokens(a), y = tokens(b); return x.length === y.length && x.every((t, i) => t === y[i]); };
+
+// ---------- UI ----------
+function setStatus(t) { $('status').textContent = t || ''; }
+function setVerdict(v, extra) {
+  $('verdict').className = v;
+  $('verdict').textContent = v ? v + (extra ? '  ' + extra : '') : '';
+}
+function showDetail(title, text) {
+  $('detail-wrap').classList.toggle('hidden', !title);
+  $('detail-title').textContent = title || '';
+  $('detail').textContent = text || '';
+}
+function resetRows() {
+  $('rows').innerHTML = TESTS.map(([n, d], i) => {
+    const id = String(i + 1).padStart(2, '0');
+    return `<tr id="r${id}"><td>${id}</td><td class="v pending">—</td><td class="num"></td>
+      <td class="desc">n=${n.toLocaleString()} · ${d}</td></tr>`;
+  }).join('');
+}
+function setRow(id, v, ms) {
+  const tr = $('r' + id);
+  tr.children[1].className = 'v ' + v;
+  tr.children[1].textContent = v;
+  tr.children[2].textContent = ms == null ? '' : (ms >= 1000 ? (ms / 1000).toFixed(2) + ' s' : Math.round(ms) + ' ms');
+}
+function busy(b) { $('submit').disabled = b; $('run-custom').disabled = b; $('lang').disabled = b; }
+const fmtMs = ms => ms == null ? '' : ms >= 1000 ? (ms / 1000).toFixed(2) + ' s' : Math.round(ms) + ' ms';
+
+function loadCode() {
+  const lang = $('lang').value;
+  $('code').value = store.get('popquiz-code-' + lang) ?? TEMPLATES[lang];
+}
+$('lang').value = store.get('popquiz-lang') || 'cpp';
+loadCode();
+$('lang').addEventListener('change', () => { store.set('popquiz-lang', $('lang').value); loadCode(); preload(); });
+$('code').addEventListener('input', () => store.set('popquiz-code-' + $('lang').value, $('code').value));
+$('code').addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  e.preventDefault();
+  const t = e.target, s = t.selectionStart;
+  t.setRangeText('    ', s, t.selectionEnd, 'end');
+  store.set('popquiz-code-' + $('lang').value, t.value);
+});
+
+async function prepare(lang, src) {
+  $('ce-wrap').classList.add('hidden');
+  if (lang === 'cpp') {
+    const c = await compileIfNeeded(src);
+    if (!c.ok) {
+      $('ce-log').textContent = c.log; $('ce-wrap').classList.remove('hidden');
+      return false;
+    }
+    if (c.log && c.log.trim()) { $('ce-log').textContent = c.log; $('ce-wrap').classList.remove('hidden'); }
+  }
+  return true;
+}
+
+$('submit').addEventListener('click', async () => {
+  const lang = $('lang').value, src = $('code').value;
+  busy(true); resetRows(); setVerdict(''); showDetail();
+  try {
+    if (!(await prepare(lang, src))) { setVerdict('CE'); setStatus(''); return; }
+    let first = null, passed = 0, maxMs = 0;
+    for (let i = 0; i < TESTS.length; i++) {
+      const id = String(i + 1).padStart(2, '0');
+      setStatus(`运行测试点 ${id} / ${TESTS.length}…`);
+      const [input, ans] = await Promise.all([getText(id + '.in'), getText(id + '.ans')]);
+      const r = await runOnce(lang, src, input);
+      if (r.status === 'CE') {
+        $('ce-log').textContent = r.stderr; $('ce-wrap').classList.remove('hidden');
+        resetRows(); setVerdict('CE'); setStatus(''); return;
+      }
+      let v = r.status === 'OK' ? (sameOutput(r.stdout, new TextDecoder().decode(ans)) ? 'AC' : 'WA') : r.status;
+      setRow(id, v, r.ms);
+      if (r.ms != null) maxMs = Math.max(maxMs, r.ms);
+      if (v === 'AC') passed++;
+      else if (!first) {
+        first = v;
+        const expect = new TextDecoder().decode(ans).trim();
+        if (v === 'WA') showDetail(`测试点 ${id}：WA`, `expected: ${expect}\nyour output: ${r.stdout.trim().slice(0, 2000) || '(empty)'}`
+          + (r.stderr ? `\n\nstderr:\n${r.stderr.slice(0, 2000)}` : ''));
+        else if (v === 'RE') showDetail(`测试点 ${id}：RE`, (r.stderr || '').slice(0, 4000));
+        else showDetail(`测试点 ${id}：${v}`, v === 'TLE' ? `超过 ${$('tl').value} s 时限` : '输出超过 4 MB');
+      }
+    }
+    setVerdict(first || 'AC', `${passed} / ${TESTS.length}`);
+    setStatus(`最大用时 ${fmtMs(maxMs)}`);
+  } catch (e) {
+    setStatus('出错：' + e.message);
+  } finally { busy(false); }
+});
+
+$('run-custom').addEventListener('click', async () => {
+  const lang = $('lang').value, src = $('code').value;
+  busy(true);
+  try {
+    if (!(await prepare(lang, src))) { setStatus('编译失败'); return; }
+    setStatus('运行中…');
+    const r = await runOnce(lang, src, new TextEncoder().encode($('custom-in').value));
+    if (r.status === 'CE') { $('ce-log').textContent = r.stderr; $('ce-wrap').classList.remove('hidden'); setStatus('编译失败'); return; }
+    $('custom-out-wrap').classList.remove('hidden');
+    $('custom-out-title').textContent = `输出 · ${r.status === 'OK' ? '' : r.status + ' · '}${fmtMs(r.ms)}`;
+    $('custom-out').textContent = (r.stdout || '') + (r.stderr ? '\n--- stderr ---\n' + r.stderr : '');
+    setStatus('');
+  } catch (e) {
+    setStatus('出错：' + e.message);
+  } finally { busy(false); }
+});
+
+// Start downloading the toolchain for the selected language in the background.
+async function preload() {
+  const lang = $('lang').value;
+  if (lang === 'cpp') {
+    if (!compiler) {
+      compiler = spawn();
+      setStatus('后台加载 C++ 编译器…');
+      call(compiler, { type: 'preload-cpp' }).then(r => { if (!$('submit').disabled) setStatus(r.type === 'ready' ? 'C++ 编译器已就绪' : '编译器加载失败：' + r.text); });
+    }
+  } else if (!(runner && runnerLang === 'py')) {
+    killRunner(); runner = spawn(); runnerLang = 'py';
+    call(runner, { type: 'preload-py' }).then(r => { if (!$('submit').disabled) setStatus(r.type === 'ready' ? 'Python 已就绪' : 'Python 加载失败：' + r.text); });
+  }
+}
+resetRows();
+preload();
+</script>
+</body>
+</html>
