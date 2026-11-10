@@ -97,7 +97,7 @@ summary { cursor: pointer; color: var(--muted); font-size: 14px; }
         第一次用 C++ 要下载约 100MB 的编译器，之后浏览器会缓存；每次编译约 5–10 秒。
         WebAssembly 里 <code>cin</code> 比 <code>scanf</code> 慢很多（大数据约 0.9s 对 0.06s）。
         不支持 <code>try/throw</code>；数组越界不一定报 RE。
-        Python 运行在 Pyodide 里，大约比本地 CPython 慢 1.4 倍。代码会自动保存在本浏览器里。
+        Python 运行在 Pyodide 里，大约比本地 CPython 慢 2–3 倍（参考解在最大数据上约 1.6s）。代码会自动保存在本浏览器里。
       </p>
     </details>
   </section>
