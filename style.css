@@ -643,6 +643,7 @@ section { padding: 100px 5vw; }
 .comp-medal.plat   { background: #e8f4f7; color: var(--plat); border: 1.5px solid #9ecfdb; }
 .comp-medal.hack   { background: #f0fdf4; color: #16a34a; border: 1.5px solid #86efac; font-size: .62rem; }
 .comp-medal.champ  { background: #fdecea; color: var(--champ); border: 1.5px solid #f0a9a0; }
+.comp-medal.rank   { background: #eef2ff; color: #4338ca; border: 1.5px solid #a5b4fc; }
 
 .comp-name {
   font-size: .95rem;

@@ -40,7 +40,7 @@
         <h1 class="hero-name">Chen Xu</h1>
         <p class="hero-tagline">I build things that <em>see</em>, think, and ship.</p>
         <p class="hero-sub">
-          CS @ NYU Tandon &middot; Computer Vision &middot; GPU Infrastructure &middot; LLM Agents
+          CS @ NYU Tandon &middot; Search &amp; Retrieval Research &middot; Computer Vision &middot; GPU Infrastructure
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View Projects</a>
@@ -75,7 +75,8 @@
             probability, and combinatorics in C++.
           </p>
           <p>
-            I've shipped a battery-electrode vision measurement system now running on <strong>30+ production
+            I'm an undergraduate researcher with <strong>Prof. Torsten Suel</strong>, speeding up early-termination
+            top-k retrieval in C++. Before NYU, I shipped a battery-electrode vision measurement system now running on <strong>30+ production
             machines across 5 manufacturers</strong>, built usage-based GPU memory oversubscription for
             <strong>HAMi</strong> (open-source Kubernetes GPU virtualization), and compete as a
             <strong>Codeforces International Master</strong> — top 0.5% worldwide. I speak English and
@@ -100,6 +101,13 @@
       <h2 class="section-title reveal">Awards &amp; Competitions</h2>
       <div class="comp-grid">
         <div class="comp-item reveal">
+          <span class="comp-medal rank">11th</span>
+          <div>
+            <p class="comp-name">ICPC Greater New York Regional</p>
+            <p class="comp-detail">11th of 66 teams &middot; NYU &middot; 2026</p>
+          </div>
+        </div>
+        <div class="comp-item reveal delay-1">
           <span class="comp-medal gold">Gold</span>
           <div>
             <p class="comp-name">ICPC/CCPC Shandong Provincial Contest
@@ -173,6 +181,21 @@
     <div class="section-inner">
       <h2 class="section-title reveal">Experience</h2>
       <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <span class="timeline-date">Nov 2026 – Present</span>
+            <span class="timeline-company">New York University</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Undergraduate Researcher</h3>
+            <p>Advised by <strong>Prof. Torsten Suel</strong>. Optimizing a C++ reimplementation of SPRAWL (SIGIR&nbsp;’25), an early-termination algorithm for top-k search retrieval.</p>
+            <ul class="timeline-bullets">
+              <li>Built a packed two-pass radix accumulator that merges candidate scores <strong>6–9&times; faster</strong> than the hash- and sort-based versions.</li>
+              <li>Cut average query latency by <strong>32–37%</strong> with identical top-k results on 6,980 queries across BM25 and DeepImpact indexes.</li>
+            </ul>
+          </div>
+        </div>
 
         <div class="timeline-item reveal">
           <div class="timeline-meta">
